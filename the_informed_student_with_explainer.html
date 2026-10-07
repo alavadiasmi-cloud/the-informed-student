@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Informed Student</title>
+<style>
+*{box-sizing:border-box}
+:root{--ink:#182033;--muted:#687287;--line:#e2e6ed;--paper:#fff;--bg:#f6f7f9;--accent:#5558c9;--accent-soft:#eeefff}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif}
+main{max-width:1050px;margin:auto;padding:34px 22px 55px}
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) 260px;gap:28px;align-items:end;padding:25px 4px 30px}
+.eyebrow{font-size:11px;font-weight:850;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(44px,7vw,76px);line-height:.92;letter-spacing:-.06em;margin:9px 0 17px;font-weight:850}
+h2{font-family:"Avenir Next","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:23px;line-height:1.15;letter-spacing:-.03em;margin:8px 0 10px}
+h3{font-size:17px;margin:18px 0 7px}
+p{line-height:1.55}.sub{color:var(--muted);max-width:720px}.note{font-size:12px;color:var(--muted);line-height:1.5}
+.stat{background:var(--ink);color:#fff;border-radius:24px;padding:23px}.stat b{font-size:50px;letter-spacing:-.05em}.stat small{color:#c9ced8}
+.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--accent-soft);color:#4447a8;font-size:11px;font-weight:850}
+nav{display:flex;gap:8px;overflow:auto;padding:7px 0 17px;border-bottom:1px solid var(--line)}
+nav button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:10px 15px;font-weight:800;white-space:nowrap;cursor:pointer}
+nav button.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.view{padding-top:27px}.hidden{display:none!important}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:21px;padding:20px;color:var(--ink)}
+.soft{background:#f0f1ff;border-color:#e0e2ff}
+.metric{font-size:32px;font-weight:850;letter-spacing:-.04em}
+.cta,.secondary{min-height:46px;border-radius:13px;padding:11px 16px;font-weight:850;cursor:pointer;font-family:inherit}
+.cta{background:var(--ink);color:#fff;border:0}
+.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.progress{height:7px;background:#e9ebf0;border-radius:99px;overflow:hidden}.progress>div{height:100%;background:var(--accent);transition:width .25s}
+.quizq{font-size:21px;font-weight:800;line-height:1.4;margin:17px 0}.answers{display:grid;gap:9px}
+.answer{width:100%;text-align:left;min-height:48px;padding:13px 14px;border-radius:13px;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:700;cursor:pointer;font-family:inherit}
+.answer.correct{background:#edf8f1;border-color:#76b68e;color:#205b38}.answer.wrong{background:#fff1f1;border-color:#d98a8a;color:#8a3030}
+.option-grid{display:grid;gap:9px;margin-top:9px}.option{width:100%;text-align:left;min-height:46px;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:12px;padding:12px 13px;font-weight:650;cursor:pointer}.option.selected{border-color:var(--accent);background:var(--accent-soft);color:#33369a}
+.question{padding:18px 0;border-top:1px solid #e8eaf0}.question:first-child{border-top:0}
+.barrow{display:grid;grid-template-columns:150px 1fr 45px;gap:10px;align-items:center;margin:13px 0;font-size:13px}.bar{height:9px;background:#eceef2;border-radius:99px;overflow:hidden}.fill{height:100%;background:var(--accent);border-radius:99px}
+.evidence-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:15px}.data-highlight{font-size:36px;font-weight:900;letter-spacing:-.05em;margin-top:15px}
+.evidence-list{margin-top:13px}.evidence-item{display:flex;justify-content:space-between;padding:12px 0;border-top:1px solid #e8eaf0}.evidence-value{font-weight:850;color:var(--accent)}
+.topic{display:flex;justify-content:space-between;gap:12px;align-items:center}.topic button{border:0;background:var(--accent-soft);color:#4447a8;border-radius:10px;padding:8px 11px;font-weight:800;cursor:pointer}.explain{color:var(--muted);line-height:1.55;margin-top:12px}
+select{width:100%;min-height:48px;border:1px solid #d8dde6;border-radius:13px;background:#fff;color:var(--ink);padding:11px 13px;font:inherit}
+.footer{margin-top:30px;padding-top:18px;border-top:1px solid var(--line)}
+@media(max-width:720px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.evidence-grid{grid-template-columns:1fr}}
+@media(max-width:470px){main{padding-left:15px;padding-right:15px}.grid{grid-template-columns:1fr}.barrow{grid-template-columns:105px 1fr 40px}}
+
+.evidence-grid{grid-template-columns:1fr!important;gap:15px}
+.evidence-grid .card:first-child{max-width:100%;}
+#sourceBars,#interestBars{margin-top:15px}
+
+
+.chat-source{display:inline-block;margin-top:10px;font-size:11px;font-weight:800;color:#5558c9}
+#chatInput::placeholder{color:#8a92a3}
+
+</style>
+</head>
+<body>
+<main id="app">
+<div class="hero">
+<div><div class="eyebrow">A student-built political awareness project</div><h1>The Informed Student.</h1><p class="sub">Politics and current affairs, without the noise. Test what you know, understand your news habits, and explore what our research actually found.</p></div>
+<div class="stat"><b>30</b><br><small>high-school student responses in the research sample</small><br><br><span class="pill">India · Student Research</span></div>
+</div>
+
+<nav>
+<button class="active" data-tab="home">Home</button>
+<button data-tab="quiz">🧠 Politically Aware?</button>
+<button data-tab="profile">🎯 Build My News Habit</button>
+<button data-tab="research">📊 Explore The Evidence</button>
+<button data-tab="explore">🌍 Politics, Explained</button>
+</nav>
+
+<section id="home" class="view">
+<div class="grid">
+<div class="card soft"><span class="pill">CURRENT AFFAIRS</span><h2>Could you pass this week's political-awareness drop?</h2><p class="sub">Six questions on current affairs and core political knowledge. New question packs can replace this one every few days.</p><button class="cta" data-go="quiz">Take this week's drop →</button></div>
+<div class="card"><div class="metric">r ≈ 0.72</div><div class="note">sample correlation</div><p class="note">News-consumption frequency and the self-reported awareness index move together positively in this sample.</p><button class="secondary" data-go="research">See the evidence →</button></div>
+<div class="card"><span class="pill">PERSONALISED</span><h2>Build a better news habit</h2><p class="sub">Answer nine questions about how you encounter, check and discuss news.</p><button class="secondary" data-go="profile">Build my profile →</button></div>
+</div>
+<div class="grid" style="margin-top:15px">
+<div class="card"><div class="eyebrow">01 · Understand</div><h2>Know what the headline means</h2><p class="note">Turn complicated political events into context you can actually understand—not just headlines you scroll past.</p></div>
+<div class="card"><div class="eyebrow">02 · Question</div><h2>Look beyond your feed</h2><p class="note">Learn to pause, compare sources and recognise when a political claim needs more context.</p></div>
+<div class="card"><div class="eyebrow">03 · Explore</div><h2>Politics, explained</h2><p class="note">Explore key institutions, conflicts and international-politics concepts through short student-friendly explainers.</p></div>
+</div>
+</section>
+
+<section id="quiz" class="view hidden">
+<div class="card soft"><div class="eyebrow">Current affairs drop · 7 October 2026</div><h2>Politically Aware?</h2><p class="sub">Six questions. Answer first; then see the context behind the answer.</p><div class="progress"><div id="qp" style="width:0%"></div></div><div id="qb"></div></div>
+</section>
+
+<section id="profile" class="view hidden">
+<div class="card"><div class="eyebrow">Your news habits</div><h2>Build My News Habit</h2><p class="sub">This is a reflection tool. Your answers help you understand how you currently encounter political information—and can later become useful data for a follow-up study.</p>
+<div id="questions"></div>
+<button class="cta" id="saveProfile" style="width:100%;margin-top:18px">Build my news profile →</button>
+<div id="profileResult" style="margin-top:15px"></div>
+</div>
+</section>
+
+<section id="research" class="view hidden">
+<div class="card soft" style="margin-bottom:15px">
+<div class="eyebrow">Why this matters</div>
+<h2>Politics is already shaping the world around you.</h2>
+<p class="sub">The policies governments make affect education, technology, climate, jobs, rights, trade and the conflicts that shape international relations. Being interested does not mean agreeing with a particular side—it means understanding what is happening, asking questions and being able to form your own view from evidence.</p>
+<p class="note">Good political awareness also means being careful about where information comes from. UNESCO describes media and information literacy as the ability to engage critically with information and navigate the online environment safely. Reliable reporting, primary documents and multiple perspectives can help you separate what is known from what is claimed.</p><p class="source-line">Source: <a href="https://www.unesco.org/mil4teachers/en/module1/unit2" target="_blank" rel="noopener">UNESCO — Media and Information Literacy</a></p>
+</div>
+<div class="evidence-grid">
+<div class="card">
+<div class="eyebrow">The central finding</div><h2>News frequency and political awareness move together</h2>
+<p class="sub">Across the 30 responses, students who reported consuming news more frequently generally had higher self-reported awareness-index scores.</p>
+<div class="data-highlight">r ≈ 0.72</div>
+<p class="note">Pearson correlation in this sample. This shows an association, not that consuming more news causes greater political awareness.</p>
+<div id="freqBars"></div>
+</div>
+
+</div>
+<div class="grid" style="margin-top:15px">
+<div class="card"><div class="eyebrow">Where news comes from</div><h2>How students encounter news</h2><div id="sourceBars"></div></div>
+<div class="card"><div class="eyebrow">Political interest</div><h2>How interested are students?</h2><div id="interestBars"></div></div>
+
+</div>
+<div class="card soft" style="margin-top:15px"><h2>What the data does—and does not—tell us</h2><p class="sub">The questionnaire supports investigating a relationship between news-consumption frequency and political awareness. It cannot by itself establish causation or represent all Indian high-school students.</p></div>
+</section>
+
+<section id="explore" class="view hidden">
+<div class="card soft">
+<div class="eyebrow">Politics, explained</div>
+<h2>Ask about the world around you.</h2>
+<p class="sub">Choose a topic or ask the explainer below. The built-in answers are deliberately based on a small set of curated institutional sources rather than invented facts.</p>
+
+<div class="grid" style="margin-top:15px">
+<div class="card"><div class="topic"><b>How does the UN work?</b><button data-topic="unwork">Explain</button></div><div id="unwork" class="explain hidden">The UN is an international organisation whose member states cooperate on issues including peace and security, development and human rights. Different UN bodies have different powers and responsibilities.</div></div>
+<div class="card"><div class="topic"><b>What is soft power?</b><button data-topic="softpower">Explain</button></div><div id="softpower" class="explain hidden">Soft power refers to influencing others through attraction and persuasion rather than coercion or payment. It is commonly discussed alongside hard power and, in some frameworks, as part of a broader strategy called smart power.</div></div>
+<div class="card"><div class="topic"><b>Why do states go to war?</b><button data-topic="war">Explain</button></div><div id="war" class="explain hidden">There is no single explanation. International-relations theories examine factors such as security dilemmas, power, interests, institutions, domestic politics and ideas. Different theories emphasise different causes.</div></div>
+<div class="card"><div class="topic"><b>What is the Security Council veto?</b><button data-topic="veto">Explain</button></div><div id="veto" class="explain hidden">The UN Security Council has five permanent members. A negative vote by one of those members can prevent adoption of a substantive resolution, even when most other members support it.</div></div>
+<div class="card"><div class="topic"><b>How does international law work?</b><button data-topic="law">Explain</button></div><div id="law" class="explain hidden">International law governs relations among states and other actors through treaties, customary rules and institutions. Courts such as the International Court of Justice hear particular types of disputes under defined legal rules.</div></div>
+<div class="card"><div class="topic"><b>What makes a news source reliable?</b><button data-topic="reliable">Explain</button></div><div id="reliable" class="explain hidden">Look for identifiable reporting, evidence, transparent sourcing, corrections, clear separation between news and opinion, and corroboration from other credible sources. A social-media post can point you toward a story, but it should not automatically be treated as the evidence itself.</div></div>
+</div>
+
+<div class="card" style="margin-top:15px">
+<div class="eyebrow">Ask the explainer</div>
+<h2>Political topics, explained simply.</h2>
+<p class="note">Try: “What is NATO?”, “What is the ICJ?”, “What is BRICS?”, “What is soft power?”, “How does the UN work?”, or “How do I check a political claim?”</p>
+<div style="display:flex;gap:9px;flex-wrap:wrap;margin-top:12px">
+<input id="chatInput" aria-label="Ask a political question" placeholder="Ask a political question…" style="flex:1;min-width:220px;min-height:48px;border:1px solid #d8dde6;border-radius:13px;padding:12px 14px;font:inherit;color:#182033;background:#fff">
+<button class="cta" id="chatSend">Explain →</button>
+</div>
+<div id="chatReply" class="card soft hidden" style="margin-top:12px"></div>
+</div>
+
+<p class="note" style="margin-top:13px">Source note: the explainer's core institutional descriptions are based on publicly available material from organisations such as the UN, ICJ and NATO. For fast-changing political events, always check the date and consult current reporting.</p>
+</div>
+</section>
+
+<div class="footer note">Built from a student research project on news consumption and political awareness among Indian high-school students. Research findings shown here describe the current sample and should not be generalised to all Indian students.</div>
+</main>
+
+<script>
+(function(){
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const tabs=$$('nav button'), views=$$('.view');
+function show(id){views.forEach(v=>v.classList.toggle('hidden',v.id!==id));tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'})}
+tabs.forEach(t=>t.addEventListener('click',()=>show(t.dataset.tab)));
+$$('[data-go]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.go)));
+
+const questions=[
+['On 7 October 2026, which institution raised India’s benchmark repo rate by 25 basis points to 5.5%?',['RBI','SEBI','NITI Aayog','Finance Commission'],0,'Reuters · 7 Oct 2026'],
+['India-US trade talks were reported to have stalled over issues including tariffs and India’s purchase of which commodity from Russia?',['Wheat','Russian oil','Coal','Gold'],1,'Reuters · 6 Oct 2026'],
+['Recent protests in India have centred on demands concerning which institution?',['Election Commission of India','Supreme Court','RBI','UPSC'],0,'Reuters · 4–6 Oct 2026'],
+['The ICJ primarily settles legal disputes between which actors?',['Individuals','States','Companies','Political parties'],1,'Core civics knowledge'],
+['Which of these is a permanent member of the UN Security Council?',['India','Japan','Germany','China'],3,'Core civics knowledge'],
+['If two variables are positively correlated, what can we safely say?',['One definitely causes the other','They are associated in the observed data','They must have identical values','There is no relationship'],1,'Research methods']
+];
+let qi=0,score=0,locked=false;
+function renderQuiz(){
+const q=questions[qi];locked=false;$('#qp').style.width=(qi/questions.length*100)+'%';
+$('#qb').innerHTML='<div class="note">Question '+(qi+1)+' of '+questions.length+'</div><div class="quizq">'+q[0]+'</div><div class="answers">'+q[1].map((a,i)=>'<button class="answer" data-i="'+i+'">'+a+'</button>').join('')+'</div><p id="feedback" class="note"></p>';
+$$('#qb .answer').forEach(b=>b.addEventListener('click',()=>{
+if(locked)return;locked=true;const i=Number(b.dataset.i),ok=i===q[2];
+if(ok){score++;b.classList.add('correct')}else{b.classList.add('wrong');$('#qb .answer:nth-child('+(q[2]+1)+')').classList.add('correct')}
+$('#feedback').textContent=(ok?'Correct. ':'Not quite. ')+q[3]+'.';
+setTimeout(()=>{qi++;qi<questions.length?renderQuiz():finishQuiz()},700);
+}));
+}
+function finishQuiz(){
+$('#qp').style.width='100%';
+$('#qb').innerHTML='<div style="text-align:center;padding:20px"><div class="eyebrow">THIS DROP</div><div style="font-size:60px;font-weight:900">'+score+'/6</div><h2>That is your result for this question set.</h2><p class="sub">A current-affairs score is a snapshot of what you knew today, not a measure of your overall political awareness.</p><button class="cta" id="again">Try this drop again</button></div>';
+$('#again').addEventListener('click',()=>{qi=0;score=0;renderQuiz()});
+}
+renderQuiz();
+
+const habitQuestions=[
+['q1','How often do you currently consume news?',['Never','Rarely','Once a week','Several times a week','Once a day','Multiple times a day']],
+['q2','Where do you most often discover a news story?',['Instagram','YouTube','Online articles','Newspapers','Television','Friends or family']],
+['q3','What usually makes you click on a political story?',['A headline','A person I follow','A major event','Someone sends it to me','I actively search for it']],
+['q4','When a political claim surprises you, what do you usually do first?',['Read more about it','Check another source','Ask someone','Accept it if it looks credible','Usually ignore it']],
+['q5','How often do you read beyond the headline?',['Almost always','Often','Sometimes','Rarely','Almost never']],
+['q6','How confident are you at spotting misleading political posts?',['Very confident','Somewhat confident','Neutral','Not very confident','Not confident']],
+['q7','How often do you discuss current affairs with people around you?',['Daily','Several times a week','Weekly','Rarely','Never']],
+['q8','What is your biggest barrier to consuming news?',['Lack of time','News feels complicated','Too much information','I am not very interested','I do not know which sources to trust']],
+['q9','What would make you more likely to follow current affairs?',['Short explainers','Daily 5-minute updates','Quizzes','Visual summaries','Student-focused news']]
+];
+$('#questions').innerHTML=habitQuestions.map(q=>'<div class="question" data-q="'+q[0]+'"><b>'+q[1]+'</b><div class="option-grid">'+q[2].map(x=>'<button type="button" class="option">'+x+'</button>').join('')+'</div></div>').join('');
+$$('.option-grid').forEach(g=>g.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>{g.querySelectorAll('.option').forEach(x=>x.classList.remove('selected'));btn.classList.add('selected')})));
+$('#saveProfile').addEventListener('click',()=>{
+const groups=$$('.question'),chosen=groups.filter(g=>g.querySelector('.selected'));
+if(chosen.length<groups.length){$('#profileResult').innerHTML='<div class="card" style="border-color:#d99a9a"><b>Please answer all nine questions first.</b><p class="note">Your responses are what make the profile useful.</p></div>';return}
+const get=id=>document.querySelector('[data-q="'+id+'"] .selected').textContent;
+const f=get('q1'),source=get('q2'),depth=get('q5'),confidence=get('q6');
+let title=f==='Multiple times a day'?'The Frequent Scanner':f==='Once a day'?'The Daily Catch-Up':'The Emerging News Explorer';
+$('#profileResult').innerHTML='<div class="card soft"><div class="eyebrow">YOUR NEWS PROFILE</div><h2>'+title+'</h2><p class="sub">You most often discover news through <b>'+source+'</b>. You read beyond headlines <b>'+depth.toLowerCase()+'</b>, and you describe your confidence in spotting misleading political posts as <b>'+confidence.toLowerCase()+'</b>.</p><h3>Your next experiment</h3><p class="note">For one week, try one small change: read one story beyond the headline and compare it with a second source. You can then repeat this questionnaire and compare the two sets of responses.</p></div>';
+});
+$$('[data-topic]').forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.topic).classList.toggle('hidden')));
+
+const chatbotAnswers=[
+{keys:['nato','north atlantic'],title:'NATO',body:'NATO is a political and military alliance. Its central principle is collective defence: an attack against one member is treated as an attack against all under Article 5, although each member determines the action it considers necessary.',source:'NATO · nato.int'},
+{keys:['icj','international court of justice'],title:'The ICJ',body:'The International Court of Justice is the principal judicial organ of the United Nations. It deals with legal disputes between states and gives advisory opinions on legal questions referred to it by authorised UN bodies and agencies.',source:'ICJ · icj-cij.org'},
+{keys:['brics'],title:'BRICS',body:'BRICS is a grouping of countries that cooperate on areas including economic, financial and diplomatic issues. Its membership has expanded, so current information should always be checked against an up-to-date official source.',source:'BRICS Brazil 2025 / official materials'},
+{keys:['soft power'],title:'Soft power',body:'Soft power is the ability to influence others through attraction and persuasion rather than coercion or payment. It is often contrasted with hard power, which relies on coercive capabilities.',source:'Concept used in international-relations scholarship'},
+{keys:['un','united nations','how does the un work'],title:'The United Nations',body:'The UN is an international organisation of member states. Its system includes bodies with different roles, including the General Assembly, Security Council, Secretariat, International Court of Justice and specialised agencies.',source:'United Nations · un.org'},
+{keys:['veto','security council'],title:'The Security Council veto',body:'The Security Council has five permanent members. On substantive matters, a negative vote from any permanent member prevents adoption of the resolution, even if the other members support it.',source:'United Nations Security Council · un.org'},
+{keys:['reliable','fact check','fact-check','verify','misinformation','news source'],title:'Checking a political claim',body:'Start by asking who made the claim, what evidence is provided, whether the original source is available, what important context may be missing, and whether credible independent reporting corroborates it. UNESCO specifically highlights source, credibility, accuracy and purpose as questions to ask when evaluating information.',source:'UNESCO · Media and Information Literacy'},
+{keys:['war','why do states go to war'],title:'Why do states go to war?',body:'There is no single accepted explanation. International-relations theories examine security dilemmas, power, interests, institutions, domestic politics and ideas. A careful explanation should distinguish the evidence about a particular conflict from the theory being used to interpret it.',source:'International-relations theory · explanatory framework'}
+];
+$('#chatSend').addEventListener('click',answerChat);
+$('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')answerChat()});
+function answerChat(){
+const input=$('#chatInput').value.trim().toLowerCase();
+if(!input){$('#chatReply').classList.remove('hidden');$('#chatReply').innerHTML='<b>Try asking a topic.</b><p class="note">For example: “What is the ICJ?”</p>';return}
+const match=chatbotAnswers.find(x=>x.keys.some(k=>input.includes(k)));
+const reply=$('#chatReply');reply.classList.remove('hidden');
+if(match){
+reply.innerHTML='<div class="eyebrow">'+match.title+'</div><p style="line-height:1.6;margin-bottom:5px">'+match.body+'</p><span class="chat-source">'+match.source+'</span>';
+}else{
+reply.innerHTML='<b>I do not have a verified answer for that question yet.</b><p class="note">Try one of the suggested topics above. For current events, use a current primary source or reliable reporting rather than relying on an unsourced answer.</p>';
+}
+}
+
+const freq=[['Never',1.67],['Rarely',2.10],['Once a week',2.71],['Several times a week',3.25],['Once a day',3.07],['Multiple times a day',3.87]];
+$('#freqBars').innerHTML=freq.map(r=>'<div class="barrow"><span>'+r[0]+'</span><div class="bar"><div class="fill" style="width:'+(r[1]/5*100)+'%"></div></div><b>'+r[1].toFixed(2)+'</b></div>').join('');
+function bars(id,rows,max){$(id).innerHTML=rows.map(r=>'<div class="barrow"><span>'+r[0]+'</span><div class="bar"><div class="fill" style="width:'+(r[1]/max*100)+'%"></div></div><b>'+r[1]+'</b></div>').join('')}
+bars('#sourceBars',[['Instagram',19],['Online articles',5],['Newspapers',4],['YouTube',1],['Twitter',1]],19);
+bars('#interestBars',[['Neutral',10],['Interested',7],['Very interested',5],['Slightly interested',5],['Not interested',3]],10);
+})();
+</script>
+</body>
+</html>
