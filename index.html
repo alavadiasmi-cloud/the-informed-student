@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="The Informed Student explores how young people engage with news and offers practical ways to become more informed, thoughtful participants in public life.">
+<title>The Informed Student — From headlines to understanding</title>
+<style>
+:root{--ink:#192b3a;--muted:#60717b;--paper:#f8f6f0;--white:#fffefa;--blue:#244f70;--blue2:#dce8ed;--red:#bd5a45;--line:#deded6;--gold:#d6a75d;--green:#dce7dd;--serif:Georgia,"Times New Roman",serif;--sans:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6}a{color:inherit}button,input,textarea{font:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}.topline{background:var(--ink);color:#f8f6f0;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:9px 0}.topline .wrap{display:flex;justify-content:space-between;gap:16px}.nav{display:flex;align-items:center;justify-content:space-between;padding:23px 0;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:750;letter-spacing:-.03em}.mark{width:37px;height:37px;border-radius:50%;display:grid;place-items:center;background:var(--red);color:white;font-family:var(--serif);font-size:1.35rem}.navlinks{display:flex;gap:25px;align-items:center}.navlinks a{text-decoration:none;color:var(--muted);font-size:.91rem}.navlinks a:hover,.navlinks a:focus{color:var(--red)}.menu{display:none;border:1px solid var(--line);background:transparent;border-radius:6px;padding:8px 11px;color:var(--ink)}.hero{padding:76px 0 62px;display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:center}.eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}h1,h2,h3,p{margin-top:0}h1{font:clamp(3.2rem,7vw,6.5rem)/.98 var(--serif);letter-spacing:-.065em;max-width:760px;margin:18px 0 24px}h1 em{font-weight:400;color:var(--blue)}.lede{font-size:1.13rem;color:var(--muted);max-width:590px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:4px;border:1px solid var(--ink);text-decoration:none;font-weight:700;font-size:.91rem;cursor:pointer;transition:transform .15s,background .15s}.btn:hover{transform:translateY(-1px)}.btn.primary{background:var(--ink);color:white}.btn.secondary{background:transparent;color:var(--ink)!important;border-color:var(--ink)}.hero-art{position:relative;min-height:360px;background:var(--blue2);padding:28px;overflow:hidden}.hero-art:before{content:"";position:absolute;width:280px;height:280px;border:1px solid #a7c0ca;border-radius:50%;right:-68px;top:-64px}.hero-art:after{content:"";position:absolute;width:190px;height:190px;border:1px solid #a7c0ca;border-radius:50%;right:-24px;top:-20px}.paper-card{position:relative;z-index:1;background:var(--white);padding:25px;max-width:330px;box-shadow:10px 12px 0 rgba(25,43,58,.08);transform:rotate(-2deg);margin:20px auto}.paper-card .tiny{font-size:.68rem;text-transform:uppercase;letter-spacing:.13em;color:var(--red);font-weight:800}.paper-card h3{font:2rem/1.05 var(--serif);margin:15px 0}.paper-card p{font-size:.9rem;color:var(--muted);margin-bottom:20px}.fake-lines span{display:block;height:5px;background:#e6e5df;margin:8px 0}.fake-lines span:nth-child(2){width:86%}.fake-lines span:nth-child(3){width:68%}.section{padding:76px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:32px}.section-head h2{font:clamp(2.2rem,4vw,3.7rem)/1.05 var(--serif);letter-spacing:-.045em;margin:10px 0 0;max-width:650px}.section-head p{max-width:390px;color:var(--muted);margin:0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{padding:23px;background:var(--white);border:1px solid var(--line);min-height:190px;display:flex;flex-direction:column;justify-content:space-between}.stat .num{font:clamp(2.6rem,4vw,4rem)/1 var(--serif);letter-spacing:-.05em;color:var(--blue)}.stat p{font-size:.91rem;margin:15px 0 0}.stat small{color:var(--muted);font-size:.75rem}.research-note{color:var(--muted);font-size:.82rem;margin-top:17px}.finding-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.finding{border:1px solid var(--line);padding:28px;background:var(--white)}.finding h3{font:1.7rem/1.15 var(--serif);letter-spacing:-.03em;margin:8px 0 12px}.finding p{color:var(--muted);margin-bottom:0}.tag{display:inline-block;color:var(--red);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800}.bar-row{display:grid;grid-template-columns:1fr auto;gap:8px;margin:17px 0 7px;font-size:.9rem}.bar{height:7px;background:#e8e7e0;border-radius:20px;overflow:hidden}.bar span{display:block;height:100%;background:var(--blue);border-radius:20px}.callout{background:var(--ink);color:var(--white);padding:clamp(28px,5vw,55px);display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}.callout h2{font:clamp(2.1rem,4vw,3.5rem)/1.06 var(--serif);letter-spacing:-.045em;margin:12px 0}.callout p{color:#d4dde1}.callout .eyebrow{color:#e5b17c}.callout .bigline{font:1.45rem/1.4 var(--serif);border-left:2px solid var(--red);padding-left:22px}.toolkit{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.tool{background:var(--white);border:1px solid var(--line);padding:25px;display:flex;flex-direction:column;align-items:flex-start}.tool .icon{width:42px;height:42px;background:var(--blue2);display:grid;place-items:center;border-radius:50%;font-size:1.2rem;margin-bottom:20px}.tool h3{font:1.55rem/1.1 var(--serif);margin-bottom:10px}.tool p{font-size:.92rem;color:var(--muted);flex:1}.tool a{font-weight:750;font-size:.88rem;text-decoration:none;border-bottom:1px solid var(--red);padding-bottom:3px}.steps{counter-reset:step;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.step{border-top:2px solid var(--red);padding-top:18px}.step:before{counter-increment:step;content:"0" counter(step);font:1.1rem var(--serif);color:var(--red)}.step h3{font:1.5rem var(--serif);margin:13px 0 8px}.step p{color:var(--muted);font-size:.93rem}.schools{background:var(--green);padding:clamp(28px,5vw,55px);display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}.schools h2{font:clamp(2.3rem,4vw,3.8rem)/1.04 var(--serif);letter-spacing:-.05em;margin:12px 0}.schools p{color:#4f6358}.school-box{background:var(--white);padding:24px;border:1px solid #cbd8cd}.school-box label{display:block;font-size:.8rem;font-weight:750;margin:13px 0 5px}.school-box input,.school-box textarea{width:100%;border:1px solid var(--line);background:#fffefa;padding:10px;border-radius:3px}.school-box textarea{min-height:85px;resize:vertical}.school-box .btn{margin-top:14px;width:100%}.form-note{font-size:.76rem;color:var(--muted);margin:10px 0 0}.footer{padding:35px 0 28px}.footer-top{display:flex;justify-content:space-between;gap:20px;padding-bottom:25px;border-bottom:1px solid var(--line)}.footer p{color:var(--muted);font-size:.85rem;max-width:470px;margin:12px 0 0}.footer-bottom{display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:.78rem;padding-top:18px}.modal{display:none;position:fixed;inset:0;background:rgba(15,30,40,.65);z-index:10;padding:20px;overflow:auto}.modal.open{display:grid;place-items:center}.modal-card{width:min(650px,100%);max-height:90vh;overflow:auto;background:var(--white);padding:clamp(22px,4vw,38px);position:relative}.close{position:absolute;right:16px;top:12px;border:0;background:transparent;font-size:1.7rem;cursor:pointer}.quiz-q{padding:17px 0;border-bottom:1px solid var(--line)}.quiz-q p{font-weight:750;margin-bottom:10px}.quiz-q label{display:block;padding:5px 0;color:var(--muted);cursor:pointer}.quiz-result{background:var(--blue2);padding:18px;margin-top:18px;display:none}.quiz-result[hidden]{display:none!important}.quiz-result h3{font:1.8rem var(--serif);margin-bottom:5px}.source{font-size:.8rem;color:var(--muted)}.source a{color:var(--blue)}.pill{display:inline-block;border:1px solid var(--line);padding:5px 9px;border-radius:99px;font-size:.75rem;color:var(--muted);margin:0 5px 5px 0}
+@media(max-width:850px){.hero{grid-template-columns:1fr;gap:28px;padding-top:50px}.hero-art{min-height:290px}.stats{grid-template-columns:repeat(2,1fr)}.section-head{display:block}.section-head p{margin-top:15px}.callout,.schools{grid-template-columns:1fr}.toolkit{grid-template-columns:1fr 1fr}.navlinks{gap:14px}}
+@media(max-width:600px){.wrap{width:min(100% - 28px,1120px)}.topline .wrap span:last-child{display:none}.nav{padding:15px 0}.menu{display:block}.navlinks{display:none;position:absolute;top:108px;left:0;right:0;background:var(--paper);padding:18px 22px;border-bottom:1px solid var(--line);z-index:5;flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.hero{padding:45px 0}.hero-art{min-height:270px;padding:14px}.paper-card{padding:20px}.section{padding:55px 0}.stats,.finding-grid,.toolkit,.steps{grid-template-columns:1fr}.stat{min-height:155px}.footer-top,.footer-bottom{flex-direction:column}.schools{padding:25px}.callout{padding:25px}.section-head h2{font-size:2.5rem}}
+
+/* Welcome gate */
+body.gated{overflow:hidden}#welcomeGate{position:fixed;inset:0;z-index:100;background:var(--paper);display:grid;place-items:center;padding:24px}#welcomeGate[hidden]{display:none}.welcome-card{width:min(720px,100%);background:var(--white);border:1px solid var(--line);padding:clamp(28px,6vw,58px);text-align:center;box-shadow:12px 12px 0 rgba(25,43,58,.06)}.welcome-card h1{font-size:clamp(2.8rem,7vw,5rem);margin:16px auto}.welcome-card p{color:var(--muted);max-width:520px;margin:0 auto 24px}.role-options{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}.role-options .btn{min-width:160px}.welcome-note{font-size:.78rem!important;margin-top:22px!important;margin-bottom:0!important}
+</style>
+<!-- Analytics is intentionally not enabled until you create a GoatCounter site and replace YOUR-SITE-CODE below with its real code. -->
+<!-- After publishing, add: <script data-goatcounter="https://YOUR-SITE-CODE.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script> -->
+</head>
+<body class="gated">
+<div id="welcomeGate" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="welcome-card"><div class="eyebrow">Initiative by Asmi Alavadi</div><div class="brand" style="justify-content:center"><span class="mark">i.</span><span>The Informed Student</span></div><h1 id="welcomeTitle">How do you connect with this project?</h1><p>Choose the option that best describes you to explore student news habits, research findings and practical ways to engage with current affairs.</p><div class="role-options"><button class="btn primary" type="button" data-role="student">I’m a student</button><button class="btn secondary" type="button" data-role="teacher">I’m a teacher / educator</button><button class="btn secondary" type="button" data-role="other">Other visitor</button></div><p class="welcome-note">This choice is used only to count anonymous role selections if analytics is configured. It does not identify you.</p></div>
+</div>
+<div class="topline"><div class="wrap"><span>A student-led research & civic learning initiative</span><span>Understand · Question · Participate</span></div></div>
+<header class="wrap">
+  <nav class="nav" aria-label="Main navigation">
+    <a class="brand" href="#home"><span class="mark">i.</span><span>The Informed Student</span></a>
+    <button class="menu" id="menuBtn" aria-expanded="false" aria-controls="navlinks">Menu ☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="#research">The research</a><a href="#findings">Key findings</a><a href="#action">Take action</a>
+    </div>
+  </nav>
+</header>
+<main>
+<section class="hero wrap" id="home">
+  <div>
+    <div class="eyebrow">Initiative by Asmi Alavadi</div>
+    <h1>From headlines to <em>understanding.</em></h1>
+    <p class="lede">The Informed Student explores how young people engage with news—and offers practical ways to move from scrolling through headlines to understanding the issues shaping our world.</p>
+    <div class="actions"><a class="btn primary" href="#research">Explore the findings ↓</a><a class="btn secondary" href="#action">Find your next step</a><button class="btn secondary" type="button" id="launchQuiz">Take the quiz ↗</button></div>
+  </div>
+  <div class="hero-art" aria-label="Editorial illustration of a research report">
+    <div class="paper-card"><div class="tiny">The student perspective · Research snapshot</div><h3>Being informed is more than knowing the headline.</h3><p>It means asking questions, checking sources, understanding context and joining the conversation.</p><div class="fake-lines"><span></span><span></span><span></span></div></div>
+  </div>
+</section>
+
+<section class="section" id="research"><div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">01 / The research</div><h2>What does it mean to be an informed student?</h2></div><p>This exploratory survey looked at students’ news habits, preferred sources, and confidence engaging with current affairs.</p></div>
+  <div class="callout" style="margin-bottom:28px">
+    <div><div class="eyebrow">The question behind the project</div><h2>Are we seeing the news—or understanding it?</h2><p>News is easy to encounter in a social feed. Understanding its context, evaluating the source and discussing its implications can take more effort.</p></div>
+    <div><div class="bigline">The project aims to make thoughtful engagement with current affairs feel more accessible, practical and relevant to students.</div></div>
+  </div>
+  <div class="section-head" style="margin-top:45px"><div><div class="eyebrow">Survey snapshot</div><h2>What respondents told us</h2></div><p>Self-reported responses from students collected in June 2026.</p></div>
+  <div class="stats">
+    <article class="stat"><div><div class="num">30</div><p>student responses in the survey</p></div><small>Sample size</small></article>
+    <article class="stat"><div><div class="num">63%</div><p>selected Instagram as their most frequently used news source</p></div><small>19 of 30 respondents</small></article>
+    <article class="stat"><div><div class="num">67%</div><p>rated staying informed for responsible citizenship as important (4–5/5)</p></div><small>20 of 30 respondents</small></article>
+    <article class="stat"><div><div class="num">23%</div><p>rated their confidence discussing political issues highly (4–5/5)</p></div><small>7 of 30 respondents</small></article>
+  </div>
+  <p class="research-note">Method note: These are self-reported habits and perceptions, not an objective test of news knowledge. The sample is small and should not be treated as representative of all students.</p>
+</div></section>
+
+<section class="section" id="findings"><div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">02 / Key findings</div><h2>A gap worth paying attention to.</h2></div><p>Survey responses point to a useful question: how can students turn exposure to news into understanding and confident participation?</p></div>
+  <div class="finding-grid">
+    <article class="finding"><span class="tag">Finding 01</span><h3>Social platforms are a common entry point.</h3><p>Instagram was the most frequently selected news source in this sample. Social platforms can help students encounter stories, but a post alone may not provide the full context.</p><div class="bar-row"><span>Instagram as most-used source</span><strong>63%</strong></div><div class="bar"><span style="width:63.33%"></span></div></article>
+    <article class="finding"><span class="tag">Finding 02</span><h3>Many respondents spend limited time with news.</h3><p>Most respondents reported spending less than 15 minutes a day consuming news. Short, intentional habits may be more approachable than expecting students to follow every development.</p><div class="bar-row"><span>Less than 15 minutes daily</span><strong>70%</strong></div><div class="bar"><span style="width:70%"></span></div></article>
+    <article class="finding"><span class="tag">Finding 03</span><h3>Feeling informed is not the same as feeling confident.</h3><p>Only 23% rated their confidence discussing political issues at 4–5 out of 5, while 67% rated responsible citizenship and staying informed at 4–5.</p><div class="bar-row"><span>High confidence discussing politics</span><strong>23%</strong></div><div class="bar"><span style="width:23.33%"></span></div></article>
+    <article class="finding"><span class="tag">Finding 04</span><h3>International awareness may need more support.</h3><p>40% rated themselves highly informed about major international events and conflicts, compared with 17% for political developments in India. These are self-assessments, not verified knowledge scores.</p><div class="bar-row"><span>Feel well-informed internationally</span><strong>40%</strong></div><div class="bar"><span style="width:40%"></span></div></article>
+  </div>
+  <div style="margin-top:22px"><span class="pill">Exploratory sample</span><span class="pill">Self-reported responses</span><span class="pill">Collected June 2026</span></div>
+  <p class="research-note">Percentages are rounded. Results are descriptive of this survey sample only. They do not establish why respondents engage with news in particular ways.</p>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="callout"><div><div class="eyebrow">What the findings suggest</div><h2>Move from consumption to participation.</h2><p>The survey does not show that students lack interest in public life. It suggests a practical opportunity: make it easier to understand a story, check what supports it, and talk about what it means.</p></div><div><div class="bigline">You do not have to know everything to be an informed citizen. Start with one issue, ask better questions, and follow the evidence.</div></div></div>
+</div></section>
+
+<section class="section" id="action"><div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">03 / Take action</div><h2>Small habits. Better questions.</h2></div><p>Use this toolkit to build a more intentional relationship with news—without feeling that you have to follow every headline.</p></div>
+  <div class="toolkit">
+    <article class="tool"><div class="icon">↗</div><h3>Go beyond the post</h3><p>When a headline catches your attention, open the full article. Look for the publication, author, date and evidence behind the claim.</p><a href="https://www.unesco.org/en/media-information-literacy" target="_blank" rel="noopener noreferrer">Explore media literacy ↗</a></article>
+    <article class="tool"><div class="icon">⌕</div><h3>Compare coverage</h3><p>Read more than one credible source. Notice what facts overlap, what context differs, and where reporting ends and commentary begins.</p><a href="https://www.reuters.com/" target="_blank" rel="noopener noreferrer">Visit Reuters ↗</a></article>
+    <article class="tool"><div class="icon">◎</div><h3>Ask five questions</h3><p>What happened? Who is affected? What led to it? What evidence is available? What perspectives or information might be missing?</p><a href="#question-tool">Try the question guide ↓</a></article>
+    <article class="tool"><div class="icon">◷</div><h3>Build a realistic routine</h3><p>Choose a manageable time to read one substantial report. Focus on understanding one issue rather than scrolling through endless updates.</p><a href="#routine">Make a routine ↓</a></article>
+    <article class="tool"><div class="icon">☷</div><h3>Discuss respectfully</h3><p>Bring one issue to a classroom discussion, debate club, MUN or conversation. Ask questions and represent opposing views fairly.</p><a href="https://www.unesco.org/en/media-information-literacy" target="_blank" rel="noopener noreferrer">Explore media literacy ↗</a></article>
+    <article class="tool"><div class="icon">✦</div><h3>Start something at school</h3><p>Organise a current-affairs discussion, create a student reading list, or invite peers to examine how different outlets cover one story.</p><a href="https://www.unesco.org/en/media-information-literacy" target="_blank" rel="noopener noreferrer">Explore media literacy ↗</a></article>
+  </div>
+</div></section>
+
+<section class="section" id="question-tool"><div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">A practical tool</div><h2>Pause before you share.</h2></div><p>Use this checklist with any news story. It is designed to prompt critical reading, not to decide automatically whether a story is true.</p></div>
+  <div class="finding-grid">
+    <div class="finding"><h3>Ask yourself</h3><div id="checklist">
+      <label style="display:flex;gap:12px;margin:13px 0"><input type="checkbox"> <span>Who published this, and what is their track record?</span></label>
+      <label style="display:flex;gap:12px;margin:13px 0"><input type="checkbox"> <span>What evidence or original sources are provided?</span></label>
+      <label style="display:flex;gap:12px;margin:13px 0"><input type="checkbox"> <span>When did this happen, and is the information current?</span></label>
+      <label style="display:flex;gap:12px;margin:13px 0"><input type="checkbox"> <span>Can I corroborate the central claim elsewhere?</span></label>
+      <label style="display:flex;gap:12px;margin:13px 0"><input type="checkbox"> <span>Does the headline match what the article actually says?</span></label>
+    </div><p class="research-note">A checklist supports careful judgement; it cannot guarantee that a claim is accurate.</p></div>
+    <div class="finding"><span class="tag">Quick reflection</span><h3>What do you want to understand?</h3><p>Choose a story you have seen recently and write one question you still have about it.</p><textarea id="reflection" placeholder="For example: What caused this decision, and who will be affected?" style="width:100%;min-height:120px;padding:12px;border:1px solid var(--line);background:var(--paper);resize:vertical"></textarea><button class="btn primary" style="margin-top:12px" id="saveReflection">Save reflection on this device</button><div class="quiz-result" id="reflectionResult" style="display:none"><h3>Your reflection</h3><p id="reflectionOutput"></p></div><p class="form-note" id="reflectionMsg">Your reflection stays in this browser session; it is not submitted to the project.</p></div>
+  </div>
+</div></section>
+
+<section class="section" id="routine"><div class="wrap">
+  <div class="section-head"><div><div class="eyebrow">A 15-minute routine</div><h2>Make room for understanding.</h2></div><p>A simple routine to try a few times a week. Adjust it to your schedule and interests.</p></div>
+  <div class="steps">
+    <article class="step"><h3>Choose one story</h3><p>Spend 3 minutes selecting a report from a source you trust. Pick an issue you genuinely want to understand.</p></article>
+    <article class="step"><h3>Read for context</h3><p>Spend 8 minutes reading beyond the headline. Identify the key actors, background, evidence and what remains uncertain.</p></article>
+    <article class="step"><h3>Reflect or discuss</h3><p>Spend 4 minutes writing one question, checking a second source or discussing the story with someone else.</p></article>
+  </div>
+</div></section>
+
+<footer class="footer wrap">
+  <div class="footer-top"><div><a class="brand" href="#home"><span class="mark">i.</span><span>The Informed Student</span></a><p>A student-led initiative encouraging young people to approach news with curiosity, critical thinking and civic responsibility.</p></div><div><span class="tag">Explore</span><p><a href="#research">Research</a> · <a href="#findings">Findings</a> · <a href="#action">Take action</a> · </p></div></div>
+  <div class="footer-bottom"><span>© 2026 The Informed Student · Initiative by Asmi Alavadi</span><span>Research is exploratory. Verify information and consult multiple reliable sources.</span></div>
+</footer>
+
+<div class="modal" id="quizModal" role="dialog" aria-modal="true" aria-labelledby="quizTitle"><div class="modal-card"><button class="close" id="closeQuiz" aria-label="Close quiz">×</button><div class="eyebrow">Your news habits</div><h2 id="quizTitle" style="font:2.6rem var(--serif)">How do you engage with the news?</h2><p style="color:var(--muted)">Answer honestly. This is a reflection, not a test, and there are no right or wrong answers.</p>
+<form id="quizForm">
+<div class="quiz-q"><p>1. How often do you consume news or current affairs?</p><label><input type="radio" name="q1" value="daily" required> Multiple times a day / daily</label><label><input type="radio" name="q1" value="weekly"> Several times a week</label><label><input type="radio" name="q1" value="rare"> About once a week or less</label><label><input type="radio" name="q1" value="never"> Rarely or never</label></div>
+<div class="quiz-q"><p>2. Where do you usually encounter news first?</p><label><input type="radio" name="q2" value="social" required> Social media (e.g. Instagram, YouTube, X)</label><label><input type="radio" name="q2" value="articles"> News websites or online articles</label><label><input type="radio" name="q2" value="broadcast"> TV, radio or podcasts</label><label><input type="radio" name="q2" value="print"> Newspapers, school or conversations</label></div>
+<div class="quiz-q"><p>3. On a typical day, how much time do you spend following news?</p><label><input type="radio" name="q3" value="under15" required> Less than 15 minutes</label><label><input type="radio" name="q3" value="15to30"> 15–30 minutes</label><label><input type="radio" name="q3" value="30plus"> More than 30 minutes</label><label><input type="radio" name="q3" value="unsure"> I'm not sure</label></div>
+<div class="quiz-q"><p>4. When you see a headline or news post, how often do you open the full story or check another source?</p><label><input type="radio" name="q4" value="often" required> Usually</label><label><input type="radio" name="q4" value="sometimes"> Sometimes</label><label><input type="radio" name="q4" value="rarely"> Rarely</label><label><input type="radio" name="q4" value="never"> Almost never</label></div>
+<div class="quiz-q"><p>5. How confident do you feel discussing current affairs with someone else?</p><label><input type="radio" name="q5" value="confident" required> Very or fairly confident</label><label><input type="radio" name="q5" value="some"> Somewhat confident</label><label><input type="radio" name="q5" value="notyet"> Not very confident yet</label></div>
+<div class="quiz-q"><p>6. What most often makes it difficult to follow the news?</p><label><input type="radio" name="q6" value="time" required> Not enough time</label><label><input type="radio" name="q6" value="complex"> Stories feel complicated or hard to understand</label><label><input type="radio" name="q6" value="overload"> Too much information or negativity</label><label><input type="radio" name="q6" value="trust"> Difficulty knowing which sources to trust</label><label><input type="radio" name="q6" value="none"> Nothing in particular / other</label></div>
+<button class="btn primary" id="showReflection" type="button" style="margin-top:20px">See my reflection</button>
+<div class="quiz-result" id="quizResult" aria-live="polite"><h3 id="scoreTitle"></h3><p id="scoreText"></p><p id="scoreTip"></p><button class="btn secondary" id="retryQuiz" type="button">Retake reflection</button></div></form>
+<p class="source">Your answers are processed in this page only. They are not sent to or stored by The Informed Student.</p>
+</div></div>
+<script>
+(function(){
+  const byId = id => document.getElementById(id);
+  const menuBtn=byId('menuBtn'), navlinks=byId('navlinks');
+  if(menuBtn && navlinks){menuBtn.addEventListener('click',()=>{const open=navlinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));});navlinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{navlinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}));}
+  const modal=byId('quizModal'), form=byId('quizForm'), result=byId('quizResult');
+  function openQuiz(){modal.classList.add('open'); modal.setAttribute('aria-hidden','false');}
+  byId('launchQuiz')?.addEventListener('click',openQuiz);
+  document.querySelectorAll('[data-quiz]').forEach(b=>b.addEventListener('click',openQuiz));
+  byId('closeQuiz')?.addEventListener('click',()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');});
+  modal?.addEventListener('click',e=>{if(e.target===modal){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');}});
+  const gate=byId('welcomeGate');
+  document.querySelectorAll('[data-role]').forEach(button=>button.addEventListener('click',()=>{
+    const role=button.dataset.role; if(gate) gate.hidden=true; document.body.classList.remove('gated');
+    try{sessionStorage.setItem('tis_role',role);}catch(e){}
+    if(window.goatcounter && typeof window.goatcounter.count==='function'){window.goatcounter.count({path:'/entry/'+role,title:'Entry: '+role,event:true});}
+  }));
+  byId('saveReflection')?.addEventListener('click',()=>{
+    const value=byId('reflection').value.trim(), msg=byId('reflectionMsg'), box=byId('reflectionResult');
+    if(!value){msg.textContent='Write a question or thought about a news story first, then save your reflection.';byId('reflection').focus();return;}
+    byId('reflectionOutput').textContent=value; box.hidden=false; box.style.display='block'; msg.textContent='Your reflection is shown below. It stays in this page and is not submitted.'; box.scrollIntoView({block:'nearest',behavior:'smooth'});
+  });
+  if(form && result){
+    byId('showReflection').addEventListener('click',function(e){
+      e.preventDefault();
+      // Avoid browser-specific validation behaviour; give a clear message if any answer is missing.
+      const missing=[];
+      for(let i=1;i<=6;i++){if(!form.querySelector('input[name="q'+i+'"]:checked')) missing.push(i);}
+      if(missing.length){let notice=byId('quizNotice'); if(!notice){notice=document.createElement('p');notice.id='quizNotice';notice.setAttribute('role','alert');notice.style.color='var(--red)';form.insertBefore(notice,byId('showReflection'));}notice.textContent='Please answer question'+(missing.length>1?'s ':' ')+missing.join(', ')+ ' before seeing your reflection.';form.querySelector('input[name="q'+missing[0]+'"]')?.focus();return;}
+      const d=new FormData(form); const freq=d.get('q1'), source=d.get('q2'), verify=d.get('q4'), confidence=d.get('q5'), barrier=d.get('q6');
+      let title='Your news habit: a starting point', text='You have a personal pattern for encountering news. The next step is to make sure that pattern helps you understand the story, not just see it.', tip='Choose one story this week, read the full report, check a second reliable source, and write down one question you still have.';
+      if(freq==='daily' && verify==='often'){title='Your news habit: the active checker';text='You encounter news regularly and often look beyond the initial post. Keep building context by comparing reporting and noticing what remains uncertain.';tip='Explain one story to a friend in your own words, separating confirmed facts from questions or opinions.';}
+      else if(source==='social' && (verify==='rarely'||verify==='never')){title='Your news habit: the social scroller';text='Social platforms are your main entry point, but you may not often open the full story. A post can be a useful lead, not the whole picture.';tip='Pick one post that interests you, open its original source, check the date and evidence, and compare it with another credible outlet.';}
+      else if(barrier==='complex'){title='Your news habit: looking for context';text='Complicated stories can be difficult to follow, especially when they involve unfamiliar history, institutions or terminology.';tip='Start with a short explainer from a reputable source, identify the main actors and timeline, then read a fuller report.';}
+      else if(barrier==='time'){title='Your news habit: short on time';text='Keeping up with every development is unrealistic. A small, consistent routine can be more useful than constant scrolling.';tip='Set aside 10–15 minutes a few times a week to understand one story rather than skim many headlines.';}
+      else if(barrier==='overload'){title='Your news habit: avoiding overload';text='A constant stream of updates can feel overwhelming. It is reasonable to choose a limited routine and focus on understanding rather than volume.';tip='Choose a set time to read one or two stories, then step away. You do not need to follow every breaking update.';}
+      else if(barrier==='trust'){title='Your news habit: checking credibility';text='Knowing which sources to trust can be challenging. Look at who published the story, what evidence is linked and whether other credible outlets corroborate the key claims.';tip='Use the “Pause before you share” checklist on this page with a story you have seen recently.';}
+      else if(confidence==='notyet'){title='Your news habit: building confidence';text='You do not need to know everything to join a current-affairs conversation. Curiosity and asking careful questions are good places to start.';tip='Choose one issue, write down what you know and what you are unsure about, then discuss it with someone open to different perspectives.';}
+      byId('scoreTitle').textContent=title; byId('scoreText').textContent=text; byId('scoreTip').textContent=tip;
+      result.hidden=false; result.style.display='block'; result.removeAttribute('hidden');
+      form.querySelectorAll('.quiz-q').forEach(q=>q.style.display='none');
+      byId('showReflection').style.display='none';
+      const n=byId('quizNotice');if(n)n.remove();
+      result.scrollIntoView({behavior:'auto',block:'nearest'});
+    });
+  }
+  byId('retryQuiz')?.addEventListener('click',()=>{form.reset();form.querySelectorAll('.quiz-q').forEach(q=>q.style.display='block');byId('showReflection').style.display='inline-flex';result.hidden=true;result.style.display='none';const n=byId('quizNotice');if(n)n.remove();byId('quizModal').querySelector('.modal-card').scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
